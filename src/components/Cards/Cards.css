@@ -1,0 +1,15 @@
+*
+{
+    margin:0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+.Card {
+    width: 250px;
+    height: 400px;
+    margin-top: 2rem;
+}
+.img{
+    border:  blue 2px;
+}

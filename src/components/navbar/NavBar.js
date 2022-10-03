@@ -5,24 +5,15 @@ import Cart from '../CartWidget/CartWidget.js';
 const NavBar = () => (
     
     <div>
-        <h1 className="Name"> B.ball Store</h1>
-        <h3>We love Basketball </h3>
+        <h1 className="Name"> MDQ Store</h1>
         
         <ul className="List">
             <li>
-                <a href="/">Inicio
-                </a>
+                <a href="/">Inicio </a>
 
-            </li> <a href="/">Hombre
-            </a>
+            </li> <a href="/">Juegos </a>
 
-            <li> <a href="/">Mujer
-            </a>
-
-            </li>
-
-            <li> <a href="/">Contacto
-            </a>
+            <li> <a href="/">Consolas  </a>
             </li>
             <a href="/"><Cart/></a>
         </ul>
