@@ -1,4 +1,5 @@
 import  Card from "react-bootstrap/Card";
+import { Link } from "react-router-dom";
 import Contador from '../Contador/Contador';
 import './Cards.css';
 
@@ -17,6 +18,11 @@ function Cards( {info} ) {
         <Card.Text>
           <h3> usd {info.precio}</h3>
         </Card.Text>
+        
+        <div>
+        <Link to= `/detail/${info.id}`>Ver más</Link>
+        </div>
+        
         <Contador initial={1} stock={10} onAdd={onAdd}/>
       </Card.Body>
       </div>
