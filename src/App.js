@@ -3,8 +3,11 @@ import './App.css';
 import ItemListContainer from './components/ItemListContainers/ItemListContainer'
 import NavBar from './components/navbar/NavBar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home  from './routes/Home'
-import Detail from './routes/Detail'
+import ItemDetailContainer from './components/ItemListContainers/ItemDetailContainer';
+import Home from '../src/routes/Home';
+import RouteCart from './routes/RouteCart';
+
+
 
 function App() {
   return (
@@ -13,11 +16,13 @@ function App() {
       <BrowserRouter>
     < NavBar />
     <Routes>
-      <Route exact path='/' element={<Home/>}/>
-      <Route path='/Detail/:id' element={<Detail/>}/>
+    <Route path='/' element={<Home/>}/>
+      <Route path='/Games' element={<ItemListContainer/>}/>
+      <Route path='/Detail/:id' element={<ItemDetailContainer/>}/>
+      <Route path='/RouteCart' element={<RouteCart/>}/>
     </Routes>
   </BrowserRouter>
-    <ItemListContainer/>
+    
     
     
     </div>
