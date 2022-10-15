@@ -1,22 +1,28 @@
 
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import ItemList from "./ItemList";
 import Producto from "./List";
 
 
 const ItemListContainer = () => {
 const [data, setData] = useState([]);
-
+const {categoryId} = useParams;
 
 useEffect(() => {
 const getData = new Promise (resolve =>{
     setTimeout(() => {
         resolve (Producto)
-    }, 3000)
+    }, 1000)
 });
-getData.then(res => setData(res));
+if (categoryId){
+    getData.then(res =>setData(res.filter (Producto => Producto.genero === categoryId)))
+}
+else{
+    getData.then(res => setData(res));
+}
 
-}, [])
+}, [categoryId])
 
 
     return(

@@ -12,14 +12,10 @@
 }
 
  .text {
-    font-size: 2rem;
+    font-size: 1rem;
     font-weight: 500;
-    color: whitesmoke;
+    color: rgb(0, 0, 0);
     font-style: oblique;
     text-decoration: underline;
-    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQP9sD15ZFuaVeA0sZuN4e67KkRLwZoVxlnDw&usqp=CAU');
- }
+ }    
 
- .fondo{
-    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQP9sD15ZFuaVeA0sZuN4e67KkRLwZoVxlnDw&usqp=CAU');
- }

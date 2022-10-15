@@ -3,8 +3,6 @@ import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail"
 import Producto from "./List";
 
-
-
 const ItemDetailContainer =() => {
 const [item, setItem] =useState({})
 const {id}= useParams()
@@ -21,6 +19,7 @@ useEffect(() => {
 
     return( <div className="text"> <ItemDetail item={item}/> <p>Id: {id}</p> <p>Precio producto: USD{item.precio}</p> </div>
     )
+
 }
 
 export default ItemDetailContainer;

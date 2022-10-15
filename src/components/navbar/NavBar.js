@@ -8,24 +8,15 @@ const NavBar = () => (
     <div>
         <h1 className="Name"> MDQ Store</h1>
         
-        <ul className="List">
-            <li>
-                <Link to={'/'}>Home</Link> 
-            </li> 
+            <Link to='/'>Home</Link> 
 
-            <li>
-            <Link to={'/Games'}>Games</Link>
-            </li>
+            <Link to='categoria/Accion'>Accion</Link>
 
-            <li> 
-            <Link to={'/Consola'}>Consola</Link>
-            </li>
-            
-            <li>
-            <Link to={'/RouteCart'}><Cart/></Link>
-            </li>
+            <Link to='category/Deporte'>Deporte</Link>
 
-        </ul>
+            <Link to='category/Lucha'>Lucha</Link>
+
+            <Link to='/RouteCart'><Cart/></Link>
         
     </div>
 
