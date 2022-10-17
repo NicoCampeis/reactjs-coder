@@ -7,7 +7,7 @@ import Producto from "./List";
 
 const ItemListContainer = () => {
 const [data, setData] = useState([]);
-const {categoryId} = useParams;
+const {categoryId} = useParams();
 
 useEffect(() => {
 const getData = new Promise (resolve =>{
@@ -15,21 +15,21 @@ const getData = new Promise (resolve =>{
         resolve (Producto)
     }, 1000)
 });
-if (categoryId){
-    getData.then(res =>setData(res.filter (Producto => Producto.genero === categoryId)))
-}
-else{
-    getData.then(res => setData(res));
-}
+
+ if (categoryId){
+
+    getData.then(res => setData(res.filter ((prod) => prod.genero === parseInt(categoryId))))
+ }
+ else 
+getData.then(res => setData(res))
 
 }, [categoryId])
 
 
     return(
         <div>
-            
+
         <ItemList data={data} />
-        
 
         </div>
     )
