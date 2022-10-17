@@ -18,11 +18,11 @@ const NavBar = () => (
             </li>
 
             <li> 
-            <Link to={'/categoryId/Deporte'}>Deporte</Link>
+            <Link to={'/Games/Deporte'}>Deporte</Link>
             </li>
 
             <li> 
-            <Link to={'/categoryId/Lucha'}>Pelea</Link>
+            <Link to={'Games/Pelea'}>Pelea</Link>
             </li>
             
             
