@@ -27,7 +27,7 @@ const NavBar = () => (
             
             
             <li>
-            <Link to={'/RouteCart'}><Cart/></Link>
+            <Link to={'/cart'}><Cart/></Link>
             </li>
 
         </ul>

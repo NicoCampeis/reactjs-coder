@@ -3,7 +3,9 @@ import Carrito from './cart.jpg'
 import './CartWidget.css'
 
 
-const Cart = () => {
+const CartWidget = () => {
+    
+
     return(
 
         <div className="carrito">   
@@ -13,4 +15,4 @@ const Cart = () => {
     )
 };
 
-export default Cart
+export default CartWidget
