@@ -25,6 +25,3 @@ function App() {
 }
 
 export default App;
-
-//preguntar como unir mi pagina con el carrito sin que tire error 
-//como hacer que me redirecione
