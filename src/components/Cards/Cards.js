@@ -17,7 +17,6 @@ function Cards( {info} ) {
         <Link to= {`/Detail/${info.id}`}> Ver más </Link>
         </div>
 
-       
       </Card.Body>
       </div>
   );

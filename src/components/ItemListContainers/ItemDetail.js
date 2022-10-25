@@ -22,7 +22,7 @@ return (
   </div>
   <div>
   <p className="text"> Detalle de: {item.nombre}</p>
-    {goCart ? ( <Link to="/cart">terminar compra</Link>
+    {goCart ? ( <Link to="/cart">terminar compra</Link> //creo que tengo un error 
     ) : (
       <Contador initial={1} stock={10} onAdd={onAdd} />)}
     </div>

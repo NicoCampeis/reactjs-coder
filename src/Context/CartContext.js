@@ -4,7 +4,7 @@ export const UseCartContext = () => useContext(CartContext);
 
 const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
-
+    console.log(cart);
     const addProduct = (item, cantidad) => {
         if (inCart(item.id)) {
             setCart(
@@ -20,7 +20,7 @@ const CartProvider = ({ children }) => {
     };
 
     const total = () => {
-        return cart.reduce((prev, act) => prev + act.cantidad * act.price, 0);
+        return cart.reduce((prev, act) => prev + act.cantidad * act.precio, 0);
     };
 
     const totalProd = () =>

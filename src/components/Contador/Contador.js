@@ -1,17 +1,21 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './Contador.css'
 
 
 const Contador = ({initial , stock, onAdd}) => {
-  const [Contador, setcontador] = useState(initial);
+  const [Contador, setContador] = useState(initial);
 
   const Sumar = () => {
-    setcontador(Contador + 1);   
+    setContador(Contador + 1);   
   };
   const Restar = () =>{
-    setcontador(Contador - 1)
+    setContador(Contador - 1)
 
   } 
+
+  useEffect(() =>{
+    setContador(parseInt(initial));
+  },[initial])
 
   return (
 
