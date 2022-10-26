@@ -12,9 +12,9 @@ const { categoriaId } = useParams();
 useEffect(() => {
     const coleccionProductos =
 
-    categoriaId ? query(collection(db, "Items"), where("categoria", "==", categoriaId))
+    categoriaId ? query(collection(db, "Items"), where("category", "==", categoriaId))
     
-    : collection(db, "products");
+    : collection(db, "Items");
     
 
 getDocs(coleccionProductos)
