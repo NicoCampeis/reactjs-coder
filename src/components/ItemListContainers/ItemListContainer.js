@@ -30,20 +30,6 @@ getDocs(coleccionProductos)
     .catch((error) => console.log(error));
 }, [categoriaId]);
 
-  // useEffect(() => {
-  //     const getData = new Promise((resolve) => {
-  //     setTimeout(() => {
-  //         resolve(Producto);
-  //     }, 2000);
-  //     });
-  //     getData.then((listadoProducto) => {
-  //     const genero = categoriaId
-  //         ? listadoProducto.filter((item) => item.categoria === categoriaId)
-  //         : listadoProducto;
-  //     setData(genero);
-  //     });
-  // }, [categoriaId]);
-
 return (
     <div>
     <ItemList data={data} />

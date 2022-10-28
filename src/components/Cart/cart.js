@@ -1,37 +1,29 @@
 import { Link } from "react-router-dom";
 import { UseCartContext } from "../../Context/CartContext";
 import CartItem from "../CartWidget/CartItem";
-import { getFirestore, addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { db } from "../../index";
+
 const Cart = () => {
-    const {cart, total} = UseCartContext();
+    const {cart, total, cleanCart} = UseCartContext();
+    const comprador={
+        name:'nicolas',
+        email:'nico.campeis@gmail.com',
+        phone:'2234563216',
+        address:'cnel suarez 663'
+        }
 
-
-    const order = {
-        buyer:{
-            name:'nicolas',
-            email:'nico.campeis@gmail.com',
-            phone:'2234563216',
-            address:'cnel suarez 663'
-    },
-    items: cart.map((product) => ({
-        id: product.id,
-        title: product.title,
-        price: product.price,
-        stock: product.stock,
-    })),
-    total: total(),
-};
 const handleClick = () => {
-    const db = getFirestore();
-    const ordersCollection = collection(db, "orders");
-    addDoc(ordersCollection, order)
-    .then(({ id }) => console.log(id));
-};
-
-
-
-
-
+    const ordersCollection = collection(db, "ordenes");
+    addDoc(ordersCollection,{
+        comprador,
+        items: cart,
+        total: total(),
+        date: serverTimestamp()
+    })
+    .then((res) => alert(`Muchas gracias por su compra ${res.id}`));
+    cleanCart()
+}
     if (cart.length === 0) {
         return (
             <>
@@ -40,16 +32,15 @@ const handleClick = () => {
             </>
         )
     }
-
     return (
-		<>
-			{cart.map((product) => (
-				<CartItem key={product.id} product={product} />
-			))}
-			<p>total: {total()}</p>
-			<button onClick={handleClick}>Emitir compra</button>
-		</>
-	);
+        <div>
+            <>
+            {cart.map((product) => (<CartItem key={product.id} product={product} />))}
+            <p>total: {total()}</p>
+            <button onClick={handleClick}>Emitir compra</button>
+            </>
+        </div>
+    );
 };
 
 export default Cart;

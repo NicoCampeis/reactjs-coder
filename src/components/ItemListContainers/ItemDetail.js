@@ -23,7 +23,8 @@ return (
   <div>
   <p className="text"> Detalle de: {item.tittle}</p>
     {goCart ? ( <Link to="/cart">terminar compra</Link> 
-    ) : (
+                
+    ) : ( 
       <Contador initial={1} stock={10} onAdd={onAdd} />)}
     </div>
     </div>   
