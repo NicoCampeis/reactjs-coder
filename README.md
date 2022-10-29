@@ -1,3 +1,17 @@
+# MDQ Store || React || Coder House 2022.
+
+Para este trabajo creé tres categorias de juegos (Accion, Deporte y Pelea); el mismo proyecto permite al usuario tener navegabilidad
+completa en todo momento.
+Una vez seleccionado el producto te redirecciona a otra pagina donde encontraremos los detalles del articulo con sus respectiva informacion (precio, cantidad e id), cuando se ingrese su compra al carrito tenemos un link donde nos mandara al carrito mostrando todos los productos escogidos.
+
+Incluimos en nuestro proyecto una base de datos de Firestore, donde tenemos cargados todos los articulos y todos los datos incluidos en ella. Cuando cargamos un producto, se emite un comprobante que nos lleva a completar una serie de datos para que el cliente tenga la informacion de su compra y se genera una coleccion nueva en firebase.
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -5,12 +5,9 @@ import ItemDetail from "./ItemDetail"
 import { collection, doc, getDoc } from "firebase/firestore";
 import { db } from "../../index";
 
-
-
 const ItemDetailContainer =() => {
 const [item, setItem] =useState({})
 const {id}= useParams()
-
 useEffect(()=>{  
   const coleccionProd = collection(db, "Items")
   const referenciaDoc = doc(coleccionProd, id)

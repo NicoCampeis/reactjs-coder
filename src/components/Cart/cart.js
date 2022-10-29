@@ -1,34 +1,15 @@
 import { Link } from "react-router-dom";
 import { UseCartContext } from "../../Context/CartContext";
 import CartItem from "../CartWidget/CartItem";
-import { addDoc, collection, serverTimestamp } from "firebase/firestore";
-import { db } from "../../index";
+
 
 const Cart = () => {
-    const {cart, total, cleanCart} = UseCartContext();
-    const comprador={
-        name:'nicolas',
-        email:'nico.campeis@gmail.com',
-        phone:'2234563216',
-        address:'cnel suarez 663'
-        }
-
-const handleClick = () => {
-    const ordersCollection = collection(db, "ordenes");
-    addDoc(ordersCollection,{
-        comprador,
-        items: cart,
-        total: total(),
-        date: serverTimestamp()
-    })
-    .then((res) => alert(`Muchas gracias por su compra ${res.id}`));
-    cleanCart()
-}
+    const {cart, total,totalProd} = UseCartContext();
     if (cart.length === 0) {
         return (
             <>
-                <p>No hay articulos. </p>
-                <Link to='/'>Hacer Compras</Link>
+                <h5>No dispone de articulos seleccionados, por favor hacer click en "Hacer Compras" </h5>
+                <Link to='/'><button >Hacer Compras</button></Link>
             </>
         )
     }
@@ -36,8 +17,9 @@ const handleClick = () => {
         <div>
             <>
             {cart.map((product) => (<CartItem key={product.id} product={product} />))}
-            <p>total: {total()}</p>
-            <button onClick={handleClick}>Emitir compra</button>
+            <div className="product"><p>cantidad de productos: {totalProd()} </p>
+            <p>total: $ {total()}</p></div>
+            <Link to="/checkout"><button ><h4>Emitir Comprobante</h4> </button></Link>
             </>
         </div>
     );

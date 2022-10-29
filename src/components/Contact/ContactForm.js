@@ -1,11 +1,16 @@
-import { getFirestore, collection, addDoc } from "firebase/firestore";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { db } from "../../index";
 import { useState } from "react";
+import { UseCartContext } from "../../Context/CartContext";
+import { Link } from "react-router-dom";
+import "./form.css"
 
 const defaultForm = { name: "", email: "", message: "" };
 
 const ContactForm = () => {
 const [form, setForm] = useState(defaultForm);
-const [id, setId] = useState();
+const [id, setId] = useState('');
+const{cart,total,cleanCart}= UseCartContext()
 
 const changeHandler = (ev) => {
     setForm({ ...form, [ev.target.name]: ev.target.value });
@@ -13,29 +18,29 @@ const changeHandler = (ev) => {
 
 const submitHandler = (ev) => {
     ev.preventDefault();
-    const db = getFirestore();
-    const contactFormCollection = collection(db, "contactform");
-    addDoc(contactFormCollection, form).then((snapshot) => {
+    const ordersCollection = collection(db, "ordenes");
+    addDoc(ordersCollection,{
+        form,
+        items: cart,
+        total: total(),
+        date: serverTimestamp()
+    }).then((snapshot) => {
     setId(snapshot.id);
+    cleanCart()
     });
-};
-
-const resetHandler = () => {
-    setForm(defaultForm);
-    setId("");
 };
 
 return (
     <div>
     {id ? (
         <div>
-        Gracias por enviar el mensaje, se ha guardado con id {id}
-        <button onClick={resetHandler}>Enviar otro mensaje</button>
+    Muchas gracias por su compra, su id de compra es: {id}
+        
         </div>
     ) : (
         <form onSubmit={submitHandler}>
         <div>
-            <label htmlFor="name">Nombre</label>
+            <label htmlFor="name" className="letter">Nombre</label>
             <input
             name="name"
             id="name"
@@ -44,7 +49,7 @@ return (
             />
         </div>
         <div>
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email" className="letter">Email</label>
             <input
             type="email"
             name="email"
@@ -54,7 +59,7 @@ return (
             />
         </div>
         <div>
-            <label htmlFor="message">Mensaje</label>
+            <label htmlFor="message" className="letter">Ingrese su metodo de pago</label>
             <textarea
             name="message"
             id="message"
@@ -62,11 +67,15 @@ return (
             onChange={changeHandler}
             ></textarea>
         </div>
-        <button>Enviar</button>
+        <button><h4>Enviar</h4></button>
+        <Link to="/"><button><h4>Volver al inicio</h4></button></Link>
         </form>
+        
     )}
     </div>
-);
-};
+    
+)};
+
 
 export default ContactForm;
+

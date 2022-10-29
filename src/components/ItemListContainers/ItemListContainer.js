@@ -11,12 +11,8 @@ const { categoriaId } = useParams();
 
 useEffect(() => {
     const coleccionProductos =
-
-    categoriaId ? query(collection(db, "Items"), where("category", "==", categoriaId))
-    
+    categoriaId ? query(collection(db, "Items"), where("category", "==", categoriaId))    
     : collection(db, "Items");
-    
-
 getDocs(coleccionProductos)
     .then((result) => {
     const lista = result.docs.map((producto) => {

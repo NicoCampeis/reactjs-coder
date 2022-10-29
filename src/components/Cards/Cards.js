@@ -3,9 +3,6 @@ import { Link } from "react-router-dom";
 
 import './Cards.css';
 
-
-
-
 function Cards( {info} ) {
   return (
 

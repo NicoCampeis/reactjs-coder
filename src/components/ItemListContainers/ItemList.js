@@ -7,6 +7,4 @@ const ItemList = ( {data = []}) => {
         data.map(Producto => <Cards key={Producto.id} info={Producto}/>)
     
 );}
-
-
 export default ItemList;
