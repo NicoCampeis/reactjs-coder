@@ -4,7 +4,7 @@ Para este trabajo creé tres categorias de juegos (Accion, Deporte y Pelea); el 
 completa en todo momento.
 Una vez seleccionado el producto te redirecciona a otra pagina donde encontraremos los detalles del articulo con sus respectiva informacion (precio, cantidad e id), cuando se ingrese su compra al carrito tenemos un link donde nos mandara al carrito mostrando todos los productos escogidos.
 
-Incluimos en nuestro proyecto una base de datos de Firestore, donde tenemos cargados todos los articulos y todos los datos incluidos en ella. Cuando cargamos un producto, se emite un comprobante que nos lleva a completar una serie de datos para que el cliente tenga la informacion de su compra y se genera una coleccion nueva en firebase.
+Incluimos en nuestro proyecto una base de datos de Firestore, donde tenemos cargados todos los articulos y todos los datos incluidos en ella. Cuando cargamos un producto, se emite un comprobante que nos lleva a completar una serie de datos para que el cliente tenga la informacion de su compra y se genera una coleccion nueva en firebase, en ella aparece fecha y hora , email, producto, cantidad, producto e id, entre otros datos.
 
 
 
